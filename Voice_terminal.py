@@ -12,7 +12,7 @@ interpreter.llm.api_key = openai.api_key
 interpreter.auto_run = True
 
 # Set your OpenAI API key
-openai.api_key = "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"
+openai.api_key = ""
 
 
 def transcribe(audio):
