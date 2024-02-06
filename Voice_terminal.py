@@ -94,13 +94,6 @@ with gr.Blocks() as demo:
         language = ""
         for chunk in interpreter.chat(user_message, stream=True, display=False):
 
-            # I built this before we build the flags, like "start": True and "end": True.
-            # See the streaming example above. You can use those "start" and "end" flags to
-            # start the code blocks, message blocks, etc. Here we track it manually and ignore the flags.
-
-            # You should use the flags though! I was just lazy. We should rebuild this soon.
-
-            # Message
             if chunk["type"] == "message" and "content" in chunk:
               if active_block_type != "message":
                 active_block_type = "message"
