@@ -1,1 +1,1 @@
-Adding voice capabilities to terminal intelligence via open ai speech technologies. 
+Adding voice capabilities to terminal intelligence via openai speech technologies. 
