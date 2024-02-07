@@ -7,14 +7,17 @@ from pydub.playback import play
 import whisper
 import openai
 from interpreter import interpreter
+from dotenv import dotenv_values
 
+# Load variables from .env into a dictionary
+env_vars = dotenv_values(".env")
+
+# Set your OpenAI API key
+openai.api_key = env_vars.get("API_KEY")
 interpreter.llm.api_key = openai.api_key
 interpreter.auto_run = True
 
-# Set your OpenAI API key
-openai.api_key = ""
-
-
+model = "whisper-1"
 def transcribe(audio):
 
     # load audio and pad/trim it to fit 30 seconds
@@ -69,7 +72,7 @@ last_sentence = ""
 with gr.Blocks() as demo:
 
     chatbot = gr.Chatbot()
-    audio_input = gr.inputs.Audio(source="microphone", type="filepath")
+    audio_input = gr.Audio(source="Microphone", type="filepath")
     btn = gr.Button("Submit")
 
     def transcribe(audio):
